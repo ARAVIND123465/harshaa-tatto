@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harsha Tattoo Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
+    <img src="images/logo.png" alt="Harsha Tattoo Studio"
+      style="height:42px;width:auto;object-fit:contain;
+             filter:invert(1) sepia(0.1) brightness(0.9);
+             opacity:0.9;">
+    <span style="display:flex;flex-direction:column;line-height:1;">
+      <span style="font-family:'Cinzel Decorative',serif;font-size:12px;color:var(--gold);letter-spacing:1.5px;">Harsha Tattoo</span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:7px;letter-spacing:5px;color:var(--text-dim);text-transform:uppercase;margin-top:3px;">Studio · Coimbatore</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-book-btn" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book Now</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-ornament">✦ &nbsp;&nbsp; Est. Coimbatore &nbsp;&nbsp; ✦</div>
+
+  <!-- Hero Logo Circle -->
+  <div style="
+    width:150px;height:150px;
+    border-radius:50%;
+    background:#080808;
+    border:2px solid rgba(201,168,76,0.3);
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 30px;
+    box-shadow:0 0 0 6px rgba(201,168,76,0.05), 0 0 0 11px rgba(201,168,76,0.03), 0 14px 50px rgba(0,0,0,0.6);
+    overflow:hidden;
+    padding:18px;
+    opacity:0;
+    animation:fadeUp 1s ease 0.35s forwards;
+  ">
+    <img src="images/logo-dup.png" alt="Harsha Tattoo Studio"
+      style="width:100%;height:100%;object-fit:contain;
+             filter:invert(1) sepia(0.1) brightness(0.9);
+             mix-blend-mode:screen;">
+  </div>
+
+  <h1 class="hero-title">
+    Harsha<br><span class="gold">Tattoo</span><br>Studio
+  </h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">Where skin becomes a canvas for stories that endure. Bespoke tattoo artistry in the heart of Coimbatore.</p>
+  <div class="hero-cta">
+    <a href="#booking" class="btn-primary">Book Appointment</a>
+    <a href="#gallery" class="btn-outline">View Gallery</a>
+  </div>
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+<!-- INSTAGRAM BAND -->
+<div style="background:#0a0a0a;border-top:1px solid rgba(201,168,76,0.15);border-bottom:1px solid rgba(201,168,76,0.15);padding:28px 60px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;">
+  <a href="https://www.instagram.com/harsha_tattoo_studio?igsh=MWp2dmFxbmdsa3Juag==" target="_blank" style="display:flex;align-items:center;gap:14px;text-decoration:none;">
+    <div style="width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 14px rgba(220,39,67,.25);">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </div>
+    <div style="display:flex;flex-direction:column;">
+      <span style="font-family:'Cinzel Decorative',serif;font-size:16px;color:#e8e0d0;letter-spacing:1px;">@harsha_tattoo_studio</span>
+      <span style="font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:4px;color:#7a7060;text-transform:uppercase;margin-top:3px;">Follow for daily tattoo art</span>
+    </div>
+  </a>
+  <div style="width:1px;height:40px;background:rgba(201,168,76,0.2);margin:0 8px;"></div>
+  <a href="https://www.instagram.com/harsha_tattoo_studio?igsh=MWp2dmFxbmdsa3Juag==" target="_blank" style="font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#050505;background:#c9a84c;border:none;padding:12px 28px;text-decoration:none;transition:background 0.3s;box-shadow:0 3px 12px rgba(201,168,76,0.25);">Follow on Instagram</a>
+</div>
+
+
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about reveal" style="align-items:start;">
+    <div class="about-text">
+      <div class="section-label">About The Studio</div>
+      <h2 class="section-title">Art That Stays With You</h2>
+      <p style="margin-top:20px;">Harsha Tattoo Studio is <em>Coimbatore's premier destination</em> for custom tattoo artistry, located within Shivalaiya Mahal. Here, skill meets creativity and hygiene, ensuring every design is executed with precision — from intricate fine-line details to bold, timeless traditional pieces. At Harsha, a tattoo isn't just ink; it's a permanent expression of your story, identity, and passion.</p>
+      <p>Founded by <em>Akash Ganeshan</em>, a visionary artist driven by deep passion and artistic excellence, the studio reflects his commitment to perfection. His work is known for its attention to detail, originality, and emotional depth — each tattoo he creates carries meaning beyond aesthetics. With a strong interest in evolving tattoo styles and a dedication to understanding every client's story, Akash transforms ideas into powerful, lasting art that speaks for a lifetime.</p>
+      <div class="about-stats">
+        <div class="stat-box">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Tattoos Done</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">8+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Sterile Equipment</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">5★</div>
+          <div class="stat-label">Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-frame" style="aspect-ratio:auto; background:#0a0a0a; border:1px solid rgba(201,168,76,0.2); overflow:hidden; position:relative;">
+        <div class="about-frame-border"></div>
+        <img src="images/hero-bg.jpeg" alt="Akash Ganeshan — Founder, Harsha Tattoo Studio" style="width:100%; height:100%; object-fit:cover; display:block; filter:grayscale(0.15) contrast(1.05);">
+      </div>
+      <div style="text-align:center; padding:18px 0 6px; border-top:1px solid rgba(201,168,76,0.15); margin-top:0; background:var(--bg3);">
+        <div style="font-family:'Cinzel Decorative', serif; font-size:14px; color:var(--gold); letter-spacing:2px;">Akash Ganeshan</div>
+        <div style="font-family:'Montserrat', sans-serif; font-size:9px; letter-spacing:5px; color:var(--text-dim); text-transform:uppercase; margin-top:5px;">Founder</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery-section" id="gallery">
+  <div class="gallery-header reveal">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">The Canvas of Skin</h2>
+    <p>Each piece tells a different story — explore the breadth of our craft.</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:460px;">
+        <img src="images/gallery-1.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-2.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-3.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-4.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-5.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-6.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-7.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-8.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+    <div class="gallery-item">
+      <div class="gallery-img" style="min-height:220px;">
+        <img src="images/gallery-9.jpeg" alt="Tattoo artwork">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-header reveal">
+    <div class="section-label">What We Offer</div>
+    <h2 class="section-title">Our Services</h2>
+    <p>Crafted with precision, tailored to your vision.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-num">01</div>
+      <div class="service-name">Custom Design</div>
+      <p class="service-desc">Original artwork designed exclusively for you. We collaborate closely to translate your ideas into a tattoo that is uniquely yours.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">02</div>
+      <div class="service-name">Blackwork & Geometric</div>
+      <p class="service-desc">Bold patterns, mandalas, and precise geometric compositions in rich black ink. Perfect symmetry and detail in every line.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">03</div>
+      <div class="service-name">Fine Line & Minimalist</div>
+      <p class="service-desc">Delicate, whisper-thin lines that make a quiet yet powerful statement. Subtle, elegant, and timeless.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">04</div>
+      <div class="service-name">Color Realism</div>
+      <p class="service-desc">Photorealistic portraits and vivid color pieces that come alive on skin. Exceptional depth, shadow, and dimension.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">05</div>
+      <div class="service-name">Cover Up & Rework</div>
+      <p class="service-desc">Transform an unwanted tattoo into something you'll love. We assess and redesign with creativity and expertise.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-num">06</div>
+      <div class="service-name">Lettering & Script</div>
+      <p class="service-desc">Names, quotes, and calligraphy in a range of styles — from ornate gothic scripts to clean, modern typography.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking-section" id="booking">
+  <div class="booking-inner">
+    <div class="booking-header reveal">
+      <div class="section-label">Book Your Session</div>
+      <h2 class="section-title">Reserve Your Appointment</h2>
+      <p>Fill in the form below and we'll confirm your slot within 24 hours.</p>
+    </div>
+    <form class="booking-form reveal" id="bookingForm">
+      <div class="form-group">
+        <label class="form-label">Full Name</label>
+        <input type="text" class="form-input" placeholder="Your name" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Preferred Date</label>
+        <input type="date" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Preferred Time</label>
+        <select class="form-select">
+          <option value="">Select Time Slot</option>
+          <option>11:00 AM – 1:00 PM</option>
+          <option>1:00 PM – 3:00 PM</option>
+          <option>3:00 PM – 5:00 PM</option>
+          <option>5:00 PM – 7:00 PM</option>
+          <option>7:00 PM – 9:00 PM</option>
+          <option>9:00 PM – 11:00 PM</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Tattoo Style</label>
+        <select class="form-select">
+          <option value="">Select Style</option>
+          <option>Custom Design</option>
+          <option>Blackwork & Geometric</option>
+          <option>Fine Line & Minimalist</option>
+          <option>Color Realism</option>
+          <option>Cover Up & Rework</option>
+          <option>Lettering & Script</option>
+          <option>Japanese / Irezumi</option>
+          <option>Traditional / Neo Traditional</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Placement on Body</label>
+        <input type="text" class="form-input" placeholder="e.g. Left forearm, back, chest...">
+      </div>
+      <div class="form-group full">
+        <label class="form-label">Describe Your Idea</label>
+        <textarea class="form-textarea" placeholder="Tell us about the tattoo you have in mind — concept, references, size, any specific details..."></textarea>
+      </div>
+      <div class="form-submit">
+        <button type="submit">Confirm Appointment</button>
+        <p class="form-note">We will call you within 24 hours to confirm your booking.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT & LOCATION -->
+<section id="contact">
+  <div class="info-section">
+    <div class="reveal">
+      <div class="section-label">Find Us</div>
+      <h2 class="section-title" style="margin-bottom:50px;">Visit The Studio</h2>
+
+      <div class="info-block">
+        <div class="info-block-title">Address</div>
+        <p>Shivalaiya Mahal Auditorium Kalyana Mandapam<br>98, 1, Ramamurthy Rd,<br>Periya Thambi Nagar, Selvapuram North,<br>Selvapuram, Coimbatore — 641026</p>
+      </div>
+      <div class="info-block">
+        <div class="info-block-title">Hours of Operation</div>
+        <p>Open Daily &nbsp;·&nbsp; <strong style="color:var(--text)">11:00 AM — 11:00 PM</strong></p>
+        <p style="margin-top:8px; font-size:13px; color:var(--text-dim); font-style:italic;">Walk-ins welcome, appointments preferred.</p>
+      </div>
+      <div class="info-block">
+        <div class="info-block-title">Phone</div>
+        <a href="tel:+919025160201">090251 60201</a>
+      </div>
+      <div class="info-block">
+        <div class="info-block-title">Quick Links</div>
+        <div style="display:flex; gap:16px; margin-top:10px; flex-wrap:wrap;">
+          <a href="https://wa.me/919025160201" target="_blank" style="font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; color:var(--text-dim); text-decoration:none; border:1px solid var(--border); padding:10px 20px; transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-dim)'">WhatsApp</a>
+          <a href="https://www.google.com/maps/search/Shivalaiya+Mahal+Coimbatore" target="_blank" style="font-family:'Montserrat',sans-serif; font-size:10px; letter-spacing:3px; color:var(--text-dim); text-decoration:none; border:1px solid var(--border); padding:10px 20px; transition:all 0.3s;" onmouseover="this.style.borderColor='var(--gold)'; this.style.color='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-dim)'">Maps</a>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="map-placeholder">
+        <div class="map-inner">
+          <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 4C16.27 4 10 10.27 10 18C10 28.5 24 44 24 44C24 44 38 28.5 38 18C38 10.27 31.73 4 24 4ZM24 23C21.24 23 19 20.76 19 18C19 15.24 21.24 13 24 13C26.76 13 29 15.24 29 18C29 20.76 26.76 23 24 23Z" fill="#c9a84c" opacity="0.6"/>
+          </svg>
+          <p>Coimbatore, Tamil Nadu</p>
+          <a href="https://www.google.com/maps/search/Shivalaiya+Mahal+Auditorium+Selvapuram+Coimbatore" target="_blank" class="map-btn">Open in Google Maps</a>
+        </div>
+      </div>
+
+      <!-- Ornamental side info -->
+      <div style="margin-top:3px; background:var(--bg3); border:1px solid var(--border); border-top:none; padding:30px; display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:4px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">Parking</div>
+          <p style="font-size:14px;color:var(--text);font-weight:300;">Available at venue premises</p>
+        </div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:4px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">Payment</div>
+          <p style="font-size:14px;color:var(--text);font-weight:300;">Cash · UPI · Cards</p>
+        </div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:4px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">Safety</div>
+          <p style="font-size:14px;color:var(--text);font-weight:300;">100% sterile, single-use needles</p>
+        </div>
+        <div>
+          <div style="font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:4px;color:var(--text-dim);text-transform:uppercase;margin-bottom:8px;">Min. Age</div>
+          <p style="font-size:14px;color:var(--text);font-weight:300;">18+ (ID required)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div style="margin-bottom:18px;">
+    <img src="images/logo-footer.png" alt="Harsha Tattoo Studio"
+      style="height:64px;width:auto;object-fit:contain;
+             filter:invert(1) sepia(0.15) brightness(0.88);
+             opacity:0.85;">
+  </div>
+  <div class="footer-logo">Harsha Tattoo Studio</div>
+  <div class="footer-tagline">Ink that tells your story. Art that lasts a lifetime.</div>
+  <div style="display:flex;justify-content:center;gap:12px;">
+    <div style="width:30px;height:1px;background:var(--border);margin-top:10px;"></div>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1L9.9 5.9L15 6.2L11.4 9.4L12.5 14.5L8 11.8L3.5 14.5L4.6 9.4L1 6.2L6.1 5.9Z" stroke="#c9a84c" stroke-width="0.8" fill="none" opacity="0.5"/></svg>
+    <div style="width:30px;height:1px;background:var(--border);margin-top:10px;"></div>
+  </div>
+  <div class="footer-divider"></div>
+  <p class="footer-copy">© 2025 Harsha Tattoo Studio · Coimbatore, Tamil Nadu · 090251 60201</p>
+</footer>
+
+<div class="notif" id="notif">
+  <span>✦ &nbsp;Appointment request sent! We'll contact you soon.</span>
+</div>
+  <script src="js/main.js"></script>
+</body>
+</html>
