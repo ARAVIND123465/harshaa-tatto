@@ -2,30 +2,7 @@
    HARSHA TATTOO STUDIO — main.js
    ============================================================ */
 
-/* ── CUSTOM CURSOR ── */
-const cursor    = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursorRing');
-let mouseX = 0, mouseY = 0;
-let ringX  = 0, ringY  = 0;
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-  cursor.style.transform = `translate(${mouseX - 4}px, ${mouseY - 4}px)`;
-});
-
-function animateRing() {
-  ringX += (mouseX - ringX) * 0.12;
-  ringY += (mouseY - ringY) * 0.12;
-  cursorRing.style.transform = `translate(${ringX - 17}px, ${ringY - 17}px)`;
-  requestAnimationFrame(animateRing);
-}
-animateRing();
-
-document.querySelectorAll('a, button, .gallery-img, .service-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursor.style.transform += ' scale(2)');
-  el.addEventListener('mouseleave', () => {});
-});
 
 /* ── NAVBAR SCROLL ── */
 const navbar = document.getElementById('navbar');
@@ -34,7 +11,7 @@ window.addEventListener('scroll', () => {
 });
 
 /* ── MOBILE HAMBURGER ── */
-(function() {
+(function () {
   const ham = document.querySelector('.hamburger');
   const navLinks = document.querySelector('.nav-links');
   if (!ham || !navLinks) return;
@@ -70,13 +47,13 @@ const revealObserver = new IntersectionObserver((entries) => {
 revealElements.forEach(el => revealObserver.observe(el));
 
 /* ── BOOKING FORM ── */
-const form  = document.getElementById('bookingForm');
+const form = document.getElementById('bookingForm');
 const notif = document.getElementById('notif');
 
 if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
-    
+
     // Change button text while sending
     const submitBtn = form.querySelector('button[type="submit"]');
     const originalBtnText = submitBtn.textContent;
@@ -112,7 +89,7 @@ if (form) {
 }
 
 /* ── GALLERY LIGHTBOX (simple fade modal) ── */
-(function() {
+(function () {
   const imgs = document.querySelectorAll('.gallery-img img');
   if (!imgs.length) return;
 
@@ -156,7 +133,7 @@ if (form) {
 })();
 
 /* ── AI ASSISTANT WIDGET ── */
-(function() {
+(function () {
   const aiBtn = document.getElementById('ai-floating-btn');
   const aiWindow = document.getElementById('ai-chat-window');
   const aiClose = document.getElementById('ai-close-btn');
@@ -165,7 +142,7 @@ if (form) {
   const aiBody = document.getElementById('ai-chat-body');
   const aiPopMsg = document.getElementById('ai-pop-msg');
 
-  if(!aiBtn || !aiWindow) return;
+  if (!aiBtn || !aiWindow) return;
 
   // Toggle chat
   aiBtn.addEventListener('click', () => {
@@ -187,15 +164,15 @@ if (form) {
   // Handle send message
   const sendMessage = () => {
     const text = aiInput.value.trim();
-    if(!text) return;
-    
+    if (!text) return;
+
     // Add user message
     const userMsg = document.createElement('div');
     userMsg.className = 'ai-message ai-sent';
     userMsg.textContent = text;
     aiBody.appendChild(userMsg);
     aiInput.value = '';
-    
+
     aiBody.scrollTo({ top: aiBody.scrollHeight, behavior: 'smooth' });
 
     // Smart AI response logic based on data.ts
@@ -238,6 +215,6 @@ if (form) {
 
   aiSend.addEventListener('click', sendMessage);
   aiInput.addEventListener('keypress', e => {
-    if(e.key === 'Enter') sendMessage();
+    if (e.key === 'Enter') sendMessage();
   });
 })();

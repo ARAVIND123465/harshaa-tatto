@@ -8,6 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(__dirname));
 
 const emailUser = (process.env.EMAIL_USER || '').trim();
 const emailAppPassword = (process.env.EMAIL_APP_PASSWORD || '').replace(/\s+/g, '');
@@ -84,10 +85,10 @@ Harsha Tattoo Studio
   try {
     // Send to Studio Owner
     await transporter.sendMail(mailOptions);
-    
+
     // Send auto-reply to the Client
     await transporter.sendMail(clientMailOptions);
-    
+
     console.log('Emails sent successfully for booking:', name);
     res.status(200).json({ message: 'Booking request sent successfully!' });
   } catch (error) {
