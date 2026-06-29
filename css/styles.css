@@ -709,6 +709,16 @@ em {
   width: 100%;
 }
 
+.form-input {
+  cursor: text;
+}
+
+.form-input[type="date"] {
+  cursor: pointer;
+  appearance: auto;
+  -webkit-appearance: auto;
+}
+
 .form-input::placeholder,
 .form-textarea::placeholder {
   color: var(--text-light);
@@ -723,6 +733,11 @@ em {
 
 .form-select {
   cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23cca35e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 16px;
+  padding-right: 44px;
 }
 
 .form-select option {
@@ -1098,6 +1113,7 @@ footer img {
   flex-direction: column;
   align-items: flex-end;
   gap: 16px;
+  pointer-events: none;
 }
 
 .ai-floating-btn {
@@ -1113,6 +1129,7 @@ footer img {
   align-items: center;
   justify-content: center;
   transition: transform var(--transition), box-shadow var(--transition);
+  pointer-events: auto;
 }
 
 .ai-floating-btn:hover {
@@ -1132,6 +1149,7 @@ footer img {
   box-shadow: var(--shadow-lg);
   transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transform-origin: bottom right;
+  pointer-events: auto;
 }
 
 #ai-chat-window.ai-chat-hidden {
