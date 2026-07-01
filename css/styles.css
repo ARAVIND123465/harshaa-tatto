@@ -632,7 +632,8 @@ em {
 /* ── SERVICES ── */
 .services {
   padding: 120px 60px;
-  background: #e3e8e3; /* unique light sage green background */
+  background: #e3e8e3;
+  /* unique light sage green background */
 }
 
 .services-header {
@@ -1587,17 +1588,17 @@ footer img {
 
 .aftercare {
   padding: 120px 60px;
-  background: #050505; /* rich black background for this section only */
+  background: #000000; /* full black background for this section only */
   border-top: 1px solid var(--gold);
   border-bottom: 1px solid var(--gold);
 }
 
 .aftercare .section-title {
-  color: var(--gold);
+  color: #b5c7b9; /* unique soft sage green color */
 }
 
 .aftercare-left > p {
-  color: #e8d8bd !important; /* soft gold/champagne text */
+  color: rgba(181, 199, 185, 0.85) !important; /* unique soft sage green description */
 }
 
 .aftercare-inner {
@@ -1638,7 +1639,7 @@ footer img {
 .aftercare-tab-btn.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: #050505;
+  color: #000000; /* full black text on active tab */
   box-shadow: 0 4px 15px rgba(171, 130, 53, 0.3);
 }
 
@@ -1666,11 +1667,11 @@ footer img {
   padding-left: 28px;
   font-size: 14px;
   line-height: 1.6;
-  color: #d4c0a1; /* warm golden list text */
+  color: rgba(181, 199, 185, 0.8); /* unique soft sage green list text */
 }
 
 .aftercare-list li strong {
-  color: var(--gold);
+  color: #b5c7b9;
 }
 
 .aftercare-list li::before {
@@ -1697,7 +1698,7 @@ footer img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: #050505;
+  background: #000000; /* full black core */
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
@@ -1749,7 +1750,7 @@ footer img {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #050505;
+  background: #000000; /* full black dot */
   border: 1px solid var(--gold);
   display: flex;
   align-items: center;
@@ -1776,7 +1777,7 @@ footer img {
 
 .healing-orbit-dot:hover .dot-label,
 .healing-orbit-dot.active .dot-label {
-  color: #050505;
+  color: #000000; /* full black text on active */
   font-weight: 700;
 }
 
@@ -1826,7 +1827,7 @@ footer img {
   display: block;
   font-family: 'Cinzel Decorative', serif;
   font-size: 13px;
-  color: var(--gold);
+  color: var(--gold); /* milestone day title remains gold */
   letter-spacing: 1px;
   margin-bottom: 6px;
 }
@@ -1834,7 +1835,7 @@ footer img {
 .milestone-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: #e8d8bd;
+  color: rgba(181, 199, 185, 0.9); /* unique soft sage green description text */
   line-height: 1.5;
 }
 
