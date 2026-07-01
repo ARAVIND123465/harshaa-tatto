@@ -1722,6 +1722,28 @@ footer img {
   box-shadow: 0 0 30px rgba(171, 130, 53, 0.1), inset 0 0 15px rgba(171, 130, 53, 0.05);
   z-index: 10;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+/* Concentric expanding golden ripple waves */
+.healing-circle-main::before,
+.healing-circle-main::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 20px rgba(171, 130, 53, 0.35);
+  z-index: -1;
+  pointer-events: none;
+  animation: pulseRipple 3.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+.healing-circle-main::after {
+  animation-delay: 1.75s;
 }
 
 .healing-circle-main:hover {
@@ -1756,9 +1778,42 @@ footer img {
   position: absolute;
   width: 300px;
   height: 300px;
-  border: 1px dashed rgba(171, 130, 53, 0.15);
   border-radius: 50%;
   z-index: 5;
+}
+
+/* Independent rotating dashed border */
+.healing-circle-orbit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(171, 130, 53, 0.25);
+  pointer-events: none;
+  animation: orbitSpin 45s linear infinite;
+}
+
+@keyframes pulseRipple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.38);
+    opacity: 0;
+  }
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .healing-orbit-dot {
