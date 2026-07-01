@@ -1587,9 +1587,9 @@ footer img {
 
 .aftercare {
   padding: 120px 60px;
-  background: #080808; /* solid black background for this section only */
-  border-top: 1px solid rgba(171, 130, 53, 0.3);
-  border-bottom: 1px solid rgba(171, 130, 53, 0.3);
+  background: #050505; /* rich black background for this section only */
+  border-top: 1px solid var(--gold);
+  border-bottom: 1px solid var(--gold);
 }
 
 .aftercare .section-title {
@@ -1597,7 +1597,7 @@ footer img {
 }
 
 .aftercare-left > p {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: #e8d8bd !important; /* soft gold/champagne text */
 }
 
 .aftercare-inner {
@@ -1618,8 +1618,8 @@ footer img {
 
 .aftercare-tab-btn {
   background: none;
-  border: 1px solid rgba(171, 130, 53, 0.25);
-  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--gold);
+  color: var(--gold);
   padding: 10px 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -1630,6 +1630,7 @@ footer img {
 }
 
 .aftercare-tab-btn:hover {
+  background: rgba(201, 168, 76, 0.1);
   border-color: var(--gold);
   color: var(--gold);
 }
@@ -1637,8 +1638,8 @@ footer img {
 .aftercare-tab-btn.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: #080808;
-  box-shadow: 0 4px 15px rgba(171, 130, 53, 0.2);
+  color: #050505;
+  box-shadow: 0 4px 15px rgba(171, 130, 53, 0.3);
 }
 
 .aftercare-tab-content {
@@ -1665,7 +1666,7 @@ footer img {
   padding-left: 28px;
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.65);
+  color: #d4c0a1; /* warm golden list text */
 }
 
 .aftercare-list li strong {
@@ -1696,12 +1697,12 @@ footer img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: #0c0c0c;
+  background: #050505;
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 30px rgba(171, 130, 53, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 35px rgba(201, 168, 76, 0.25), inset 0 0 20px rgba(0, 0, 0, 0.9);
   z-index: 10;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
@@ -1748,8 +1749,8 @@ footer img {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #121212;
-  border: 1px solid rgba(171, 130, 53, 0.25);
+  background: #050505;
+  border: 1px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1762,7 +1763,7 @@ footer img {
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--gold);
   letter-spacing: 0.5px;
 }
 
@@ -1775,7 +1776,7 @@ footer img {
 
 .healing-orbit-dot:hover .dot-label,
 .healing-orbit-dot.active .dot-label {
-  color: #080808;
+  color: #050505;
   font-weight: 700;
 }
 
@@ -1833,7 +1834,7 @@ footer img {
 .milestone-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.6);
+  color: #e8d8bd;
   line-height: 1.5;
 }
 
