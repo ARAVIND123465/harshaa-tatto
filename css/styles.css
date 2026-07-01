@@ -846,10 +846,13 @@ em {
   text-align: center;
 }
 
-/* ── CONTACT / INFO SECTION ── */
 #contact {
   padding: 120px 60px;
-  background: var(--bg);
+  background: #000000;
+}
+
+#contact .section-title {
+  color: #ffffff;
 }
 
 .info-section {
@@ -873,16 +876,24 @@ em {
   margin-bottom: 12px;
 }
 
-.info-block p,
-.info-block a {
+#contact .info-block p,
+#contact .info-block a {
   font-size: 15px;
-  color: var(--text-mid);
+  color: #ffffff;
   line-height: 1.8;
   text-decoration: none;
   font-weight: 300;
 }
 
-.info-block a:hover {
+#contact .info-block strong {
+  color: #ffffff !important;
+}
+
+#contact .info-block p[style*="font-style:italic"] {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+#contact .info-block a:hover {
   color: var(--gold);
 }
 
