@@ -632,7 +632,7 @@ em {
 /* ── SERVICES ── */
 .services {
   padding: 120px 60px;
-  background: var(--bg);
+  background: #f1ebd9; /* warm parchment beige background */
 }
 
 .services-header {
@@ -648,50 +648,40 @@ em {
 }
 
 .services-grid {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
-  background: var(--border);
-  border: 1px solid var(--border);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 50px 32px;
+  background: transparent;
+  border: none;
 }
 
 .service-card {
-  background: var(--bg);
-  padding: 44px 36px;
-  transition: background var(--transition), transform var(--transition);
+  background: transparent;
+  padding: 0;
+  transition: transform var(--transition);
   position: relative;
-  overflow: hidden;
-}
-
-.service-card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--gold), transparent);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
-}
-
-.service-card:hover::before {
-  transform: scaleX(1);
+  overflow: visible;
+  text-align: center;
 }
 
 .service-card:hover {
-  background: var(--bg2);
+  transform: translateY(-5px);
 }
 
-.service-num {
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 11px;
+.service-icon {
+  width: 44px;
+  height: 44px;
   color: var(--gold);
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  opacity: 0.7;
+  margin-bottom: 22px;
+  stroke-width: 1.25px;
+  transition: transform var(--transition), color var(--transition);
+}
+
+.service-card:hover .service-icon {
+  transform: translateY(-4px) scale(1.08);
+  color: var(--gold-light);
 }
 
 .service-name {
@@ -1598,9 +1588,17 @@ footer img {
 /* ── AFTERCARE SECTION ── */
 .aftercare {
   padding: 120px 60px;
-  background: var(--bg3);
+  background: #080808;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
+}
+
+.aftercare .section-title {
+  color: #ffffff;
+}
+
+.aftercare-left>p {
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .aftercare-inner {
@@ -1621,8 +1619,8 @@ footer img {
 
 .aftercare-tab-btn {
   background: none;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
   padding: 10px 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -1668,11 +1666,11 @@ footer img {
   padding-left: 28px;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .aftercare-list li strong {
-  color: var(--text);
+  color: #ffffff;
 }
 
 .aftercare-list li::before {
@@ -1699,19 +1697,19 @@ footer img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: var(--bg2);
+  background: #0c0c0c;
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 30px rgba(171, 130, 53, 0.1), inset 0 0 15px rgba(171, 130, 53, 0.05);
+  box-shadow: 0 0 30px rgba(171, 130, 53, 0.15), inset 0 0 20px rgba(0, 0, 0, 0.8);
   z-index: 10;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .healing-circle-main:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 40px rgba(171, 130, 53, 0.2), inset 0 0 15px rgba(171, 130, 53, 0.05);
+  box-shadow: 0 0 40px rgba(171, 130, 53, 0.25), inset 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .healing-circle-content {
@@ -1751,8 +1749,8 @@ footer img {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: #121212;
+  border: 1px solid rgba(255, 255, 255, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1765,7 +1763,7 @@ footer img {
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   font-weight: 500;
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.5px;
 }
 
