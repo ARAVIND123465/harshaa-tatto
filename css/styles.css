@@ -1587,17 +1587,17 @@ footer img {
 
 .aftercare {
   padding: 120px 60px;
-  background: #e3e8e3; /* matching unique light sage green background */
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: #080808; /* solid black background for this section only */
+  border-top: 1px solid rgba(171, 130, 53, 0.3);
+  border-bottom: 1px solid rgba(171, 130, 53, 0.3);
 }
 
 .aftercare .section-title {
-  color: var(--text);
+  color: var(--gold);
 }
 
 .aftercare-left > p {
-  color: var(--text-dim) !important;
+  color: rgba(255, 255, 255, 0.7) !important;
 }
 
 .aftercare-inner {
@@ -1618,8 +1618,8 @@ footer img {
 
 .aftercare-tab-btn {
   background: none;
-  border: 1px solid var(--border);
-  color: var(--text-dim);
+  border: 1px solid rgba(171, 130, 53, 0.25);
+  color: rgba(255, 255, 255, 0.5);
   padding: 10px 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -1637,8 +1637,8 @@ footer img {
 .aftercare-tab-btn.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: #050505;
-  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
+  color: #080808;
+  box-shadow: 0 4px 15px rgba(171, 130, 53, 0.2);
 }
 
 .aftercare-tab-content {
@@ -1665,11 +1665,11 @@ footer img {
   padding-left: 28px;
   font-size: 14px;
   line-height: 1.6;
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .aftercare-list li strong {
-  color: var(--text);
+  color: var(--gold);
 }
 
 .aftercare-list li::before {
@@ -1696,19 +1696,19 @@ footer img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: var(--bg2);
+  background: #0c0c0c;
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 30px rgba(171, 130, 53, 0.1), inset 0 0 15px rgba(171, 130, 53, 0.05);
+  box-shadow: 0 0 30px rgba(171, 130, 53, 0.2), inset 0 0 20px rgba(0, 0, 0, 0.8);
   z-index: 10;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .healing-circle-main:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 40px rgba(171, 130, 53, 0.2), inset 0 0 15px rgba(171, 130, 53, 0.05);
+  box-shadow: 0 0 40px rgba(171, 130, 53, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .healing-circle-content {
@@ -1748,8 +1748,8 @@ footer img {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: var(--bg2);
-  border: 1px solid var(--border);
+  background: #121212;
+  border: 1px solid rgba(171, 130, 53, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1762,7 +1762,7 @@ footer img {
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   font-weight: 500;
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.5);
   letter-spacing: 0.5px;
 }
 
@@ -1775,7 +1775,7 @@ footer img {
 
 .healing-orbit-dot:hover .dot-label,
 .healing-orbit-dot.active .dot-label {
-  color: #050505;
+  color: #080808;
   font-weight: 700;
 }
 
@@ -1833,7 +1833,7 @@ footer img {
 .milestone-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: var(--text-dim);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
 }
 
