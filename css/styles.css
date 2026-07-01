@@ -632,7 +632,8 @@ em {
 /* ── SERVICES ── */
 .services {
   padding: 120px 60px;
-  background: #e3e8e3; /* unique light sage green background */
+  background: #e3e8e3;
+  /* unique light sage green background */
 }
 
 .services .section-title {
@@ -1591,20 +1592,17 @@ footer img {
 
 .aftercare {
   padding: 120px 60px;
-  background: #000000;
-  /* full black background for this section only */
-  border-top: 1px solid var(--gold);
-  border-bottom: 1px solid var(--gold);
+  background: #e3e8e3; /* matching light sage green background */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .aftercare .section-title {
-  color: #b5c7b9;
-  /* unique soft sage green color */
+  color: #000000;
 }
 
 .aftercare-left>p {
-  color: rgba(181, 199, 185, 0.85) !important;
-  /* unique soft sage green description */
+  color: #000000 !important;
 }
 
 .aftercare-inner {
@@ -1625,8 +1623,8 @@ footer img {
 
 .aftercare-tab-btn {
   background: none;
-  border: 1px solid var(--gold);
-  color: var(--gold);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
   padding: 10px 30px;
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
@@ -1645,9 +1643,9 @@ footer img {
 .aftercare-tab-btn.active {
   background: var(--gold);
   border-color: var(--gold);
-  color: #000000;
+  color: #050505;
   /* full black text on active tab */
-  box-shadow: 0 4px 15px rgba(171, 130, 53, 0.3);
+  box-shadow: 0 4px 15px rgba(201, 168, 76, 0.2);
 }
 
 .aftercare-tab-content {
@@ -1674,12 +1672,11 @@ footer img {
   padding-left: 28px;
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(181, 199, 185, 0.8);
-  /* unique soft sage green list text */
+  color: #000000;
 }
 
 .aftercare-list li strong {
-  color: #b5c7b9;
+  color: #000000;
 }
 
 .aftercare-list li::before {
@@ -1706,20 +1703,19 @@ footer img {
   width: 200px;
   height: 200px;
   border-radius: 50%;
-  background: #000000;
-  /* full black core */
+  background: var(--bg2);
   border: 2px solid var(--gold);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 35px rgba(201, 168, 76, 0.25), inset 0 0 20px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 30px rgba(171, 130, 53, 0.1), inset 0 0 15px rgba(171, 130, 53, 0.05);
   z-index: 10;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .healing-circle-main:hover {
   transform: scale(1.03);
-  box-shadow: 0 0 40px rgba(171, 130, 53, 0.3), inset 0 0 20px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 40px rgba(171, 130, 53, 0.2), inset 0 0 15px rgba(171, 130, 53, 0.05);
 }
 
 .healing-circle-content {
@@ -1759,9 +1755,8 @@ footer img {
   width: 42px;
   height: 42px;
   border-radius: 50%;
-  background: #000000;
-  /* full black dot */
-  border: 1px solid var(--gold);
+  background: var(--bg2);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1774,7 +1769,7 @@ footer img {
   font-family: 'Montserrat', sans-serif;
   font-size: 8px;
   font-weight: 500;
-  color: var(--gold);
+  color: var(--text-dim);
   letter-spacing: 0.5px;
 }
 
@@ -1787,8 +1782,7 @@ footer img {
 
 .healing-orbit-dot:hover .dot-label,
 .healing-orbit-dot.active .dot-label {
-  color: #000000;
-  /* full black text on active */
+  color: #050505;
   font-weight: 700;
 }
 
@@ -1838,8 +1832,7 @@ footer img {
   display: block;
   font-family: 'Cinzel Decorative', serif;
   font-size: 13px;
-  color: var(--gold);
-  /* milestone day title remains gold */
+  color: #000000;
   letter-spacing: 1px;
   margin-bottom: 6px;
 }
@@ -1847,8 +1840,7 @@ footer img {
 .milestone-text {
   font-family: 'Montserrat', sans-serif;
   font-size: 11px;
-  color: rgba(181, 199, 185, 0.9);
-  /* unique soft sage green description text */
+  color: #000000;
   line-height: 1.5;
 }
 
