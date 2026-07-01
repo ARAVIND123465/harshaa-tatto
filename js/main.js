@@ -10,6 +10,42 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
+/* ── HERO VIDEO MOBILE AUTOPLAY FIX ── */
+(function () {
+  const video = document.getElementById('hero-video');
+  if (!video) return;
+
+  // Force play attempt on load
+  function tryPlay() {
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(function () {
+        // Autoplay blocked — wait for user interaction
+        video.muted = true;
+        video.play().catch(function () { });
+      });
+    }
+  }
+
+  // Try immediately
+  tryPlay();
+
+  // Also try on first user interaction (touch/scroll/click)
+  function onFirstInteraction() {
+    tryPlay();
+    document.removeEventListener('touchstart', onFirstInteraction);
+    document.removeEventListener('scroll', onFirstInteraction);
+    document.removeEventListener('click', onFirstInteraction);
+  }
+
+  document.addEventListener('touchstart', onFirstInteraction, { passive: true });
+  document.addEventListener('scroll', onFirstInteraction, { passive: true });
+  document.addEventListener('click', onFirstInteraction);
+
+  // Also retry when video data is loaded
+  video.addEventListener('loadeddata', tryPlay);
+})();
+
 /* ── MOBILE HAMBURGER ── */
 (function () {
   const ham = document.querySelector('.hamburger');
