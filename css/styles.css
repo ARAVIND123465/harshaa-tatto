@@ -145,8 +145,8 @@ em {
 }
 
 #navbar.scrolled {
-  background: rgba(10, 10, 10, 0.98);
-  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.5);
+  background: var(--nav-bg);
+  box-shadow: 0 2px 24px rgba(171, 130, 53, 0.08);
 }
 
 .nav-logo span span:first-child {
@@ -236,8 +236,20 @@ em {
   padding: 120px 40px 80px;
   position: relative;
   overflow: hidden;
-  background-color: var(--bg);
-  background: radial-gradient(circle at 50% 50%, rgba(171, 130, 53, 0.05) 0%, transparent 60%);
+  background-color: #050505;
+  background: radial-gradient(circle at 50% 50%, rgba(171, 130, 53, 0.08) 0%, rgba(5, 5, 5, 0.95) 75%);
+}
+
+.hero .hero-title {
+  color: #ffffff;
+}
+
+.hero .hero-sub {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.hero .scroll-indicator span {
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .hero-bg {
