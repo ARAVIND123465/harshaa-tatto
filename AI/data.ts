@@ -7,7 +7,7 @@ export const studioInfo = {
         "98, 1, Ramamurthy Rd, Periya Thambi Nagar, Selvapuram North, Selvapuram, Coimbatore, Tamil Nadu — 641026",
     phone: "090251 60201",
     instagram: "@harsha_tattoo_studio",
-    hours: "Open Daily  |  11:00 AM — 11:00 PM",
+    hours: "Open Daily  |  10:00 AM — 11:00 PM",
     parking: "Available at venue premises",
     payment: ["Cash", "UPI", "Cards"],
     minAge: 18,
@@ -17,7 +17,7 @@ export const studioInfo = {
 };
 
 export const studioHighlights = [
-    { value: "500+", label: "Tattoos Done" },
+    { value: "10,000+", label: "Tattoos Done" },
     { value: "8+", label: "Years Experience" },
     { value: "100%", label: "Sterile Equipment" },
     { value: "5 ★", label: "Client Satisfaction" },
@@ -28,7 +28,7 @@ export const services = [
         id: "01",
         name: "Custom Design",
         description:
-            "Original artwork designed exclusively for each client. We collaborate closely to translate ideas into tattoos that are uniquely theirs.",
+            "Original artwork designed exclusively for you. We collaborate closely to translate your ideas into a tattoo that is uniquely yours.",
     },
     {
         id: "02",
@@ -38,21 +38,39 @@ export const services = [
     },
     {
         id: "03",
+        name: "Fine Line & Minimalist",
+        description:
+            "Delicate, whisper-thin lines that make a quiet yet powerful statement. Subtle, elegant, and timeless.",
+    },
+    {
+        id: "04",
         name: "Color Realism",
         description:
             "Photorealistic portraits and vivid color pieces that come alive on skin. Exceptional depth, shadow, and dimension.",
     },
     {
-        id: "04",
+        id: "05",
         name: "Cover Up & Rework",
         description:
-            "Transform an unwanted tattoo into something to love. We assess and redesign with creativity and expertise.",
+            "Transform an unwanted tattoo into something you'll love. We assess and redesign with creativity and expertise.",
     },
     {
-        id: "05",
+        id: "06",
         name: "Lettering & Script",
         description:
-            "Names, quotes, and calligraphy across a range of styles — from ornate gothic scripts to clean, modern typography.",
+            "Names, quotes, and calligraphy in a range of styles — from ornate gothic scripts to clean, modern typography.",
+    },
+    {
+        id: "07",
+        name: "Body Piercing",
+        description:
+            "Professional sterile body piercings by experienced masters. Single-use needles, strict hygiene, and premium titanium or gold jewelry.",
+    },
+    {
+        id: "08",
+        name: "Tattoo Academy",
+        description:
+            "Pursue the art of tattooing. Professional training courses for beginners and advanced artists taught by senior mentors.",
     },
 ];
 
@@ -67,12 +85,13 @@ export const tattooStyles = [
 ];
 
 export const timeSlots = [
-    { start: "11:00 AM", end: "1:00 PM" },
-    { start: "1:00 PM", end: "3:00 PM" },
-    { start: "3:00 PM", end: "5:00 PM" },
-    { start: "5:00 PM", end: "7:00 PM" },
-    { start: "7:00 PM", end: "9:00 PM" },
-    { start: "9:00 PM", end: "11:00 PM" },
+    { start: "10:00 AM", end: "12:00 PM" },
+    { start: "12:00 PM", end: "2:00 PM" },
+    { start: "2:00 PM", end: "4:00 PM" },
+    { start: "4:00 PM", end: "6:00 PM" },
+    { start: "6:00 PM", end: "8:00 PM" },
+    { start: "8:00 PM", end: "10:00 PM" },
+    { start: "10:00 PM", end: "11:00 PM" },
 ];
 
 export const policies = [

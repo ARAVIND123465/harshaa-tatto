@@ -180,9 +180,9 @@ if (form) {
     let responseText = "Thanks for reaching out! A studio artist will review your request. You can also securely fill out our <a href='#booking' style='color:var(--gold);text-decoration:underline;'>booking form</a>.";
 
     if (lowerText.includes("location") || lowerText.includes("where") || lowerText.includes("address")) {
-      responseText = "We are located at Shivalaiya Mahal Auditorium Kalyana Mandapam, 98, 1, Ramamurthy Rd, Selvapuram, Coimbatore — 641026.";
+      responseText = "We are located at 98, 1, Ramamurthy Rd, Periya Thambi Nagar, Selvapuram North, Selvapuram, Coimbatore — 641026.";
     } else if (lowerText.includes("hour") || lowerText.includes("time") || lowerText.includes("open") || lowerText.includes("close")) {
-      responseText = "We are open daily from 11:00 AM to 11:00 PM.";
+      responseText = "We are open daily from 10:00 AM to 11:00 PM.";
     } else if (lowerText.includes("phone") || lowerText.includes("contact") || lowerText.includes("call") || lowerText.includes("number")) {
       responseText = "You can call or message us directly at 090251 60201.";
     } else if (lowerText.includes("owner") || lowerText.includes("founder") || lowerText.includes("akash")) {
@@ -218,3 +218,102 @@ if (form) {
     if (e.key === 'Enter') sendMessage();
   });
 })();
+
+/* ── GALLERY FILTERING ── */
+(function () {
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+
+  if (!filterBtns.length || !galleryItems.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      // Remove active class from all buttons
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filterValue = btn.getAttribute('data-filter');
+
+      // First fade out non-matches
+      galleryItems.forEach(item => {
+        const isMatch = filterValue === 'all' || item.classList.contains(filterValue);
+        if (!isMatch) {
+          item.classList.add('fade-out');
+        }
+      });
+
+      // After fade-out completes, adjust grid classes and fade-in the matches
+      setTimeout(() => {
+        let firstVisible = null;
+
+        galleryItems.forEach(item => {
+          const isMatch = filterValue === 'all' || item.classList.contains(filterValue);
+          item.classList.remove('first-visible');
+
+          if (isMatch) {
+            item.classList.remove('hidden');
+            item.classList.remove('fade-out');
+            if (!firstVisible) {
+              firstVisible = item;
+            }
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Set the first visible item to span 2 rows for masonry grid aesthetics
+        if (firstVisible) {
+          firstVisible.classList.add('first-visible');
+        }
+      }, 350);
+    });
+  });
+})();
+
+/* ── AFTERCARE TABS & INFOGRAPHIC ── */
+(function () {
+  // Tab Toggling (Do's and Don'ts)
+  const tabBtns = document.querySelectorAll('.aftercare-tab-btn');
+  const tabContents = document.querySelectorAll('.aftercare-tab-content');
+
+  if (tabBtns.length && tabContents.length) {
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(c => c.classList.remove('active'));
+
+        btn.classList.add('active');
+        const targetId = `aftercare-${btn.getAttribute('data-tab')}`;
+        const targetContent = document.getElementById(targetId);
+        if (targetContent) {
+          targetContent.classList.add('active');
+        }
+      });
+    });
+  }
+
+  // Healing Process Milestones (Circular Infographic)
+  const dots = document.querySelectorAll('.healing-orbit-dot');
+  const milestones = document.querySelectorAll('.healing-milestone');
+
+  if (dots.length && milestones.length) {
+    dots.forEach(dot => {
+      const activateMilestone = () => {
+        dots.forEach(d => d.classList.remove('active'));
+        milestones.forEach(m => m.classList.remove('active'));
+
+        dot.classList.add('active');
+        const milestoneId = `milestone-${dot.getAttribute('data-milestone')}`;
+        const targetMilestone = document.getElementById(milestoneId);
+        if (targetMilestone) {
+          targetMilestone.classList.add('active');
+        }
+      };
+
+      dot.addEventListener('mouseenter', activateMilestone);
+      dot.addEventListener('click', activateMilestone);
+    });
+  }
+})();
+
+
