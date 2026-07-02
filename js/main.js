@@ -10,40 +10,116 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 60);
 });
 
-/* ── HERO VIDEO MOBILE AUTOPLAY FIX ── */
+/* ── HERO VIDEO AUTOPLAY FIX ── */
 (function () {
   const video = document.getElementById('hero-video');
   if (!video) return;
 
-  // Force play attempt on load
+  // Ensure muted via JS (some browsers ignore HTML attribute)
+  video.muted = true;
+  video.setAttribute('muted', '');
+  video.setAttribute('playsinline', '');
+  video.volume = 0;
+
+  let isPlaying = false;
+
   function tryPlay() {
+    if (isPlaying) return;
+    video.muted = true;
+    video.volume = 0;
     const playPromise = video.play();
     if (playPromise !== undefined) {
-      playPromise.catch(function () {
-        // Autoplay blocked — wait for user interaction
-        video.muted = true;
-        video.play().catch(function () { });
+      playPromise.then(function () {
+        isPlaying = true;
+        hidePlayButton();
+      }).catch(function () {
+        // Autoplay blocked — show play button
+        showPlayButton();
       });
     }
   }
 
+  // Create a play button overlay for when autoplay is blocked
+  const playBtn = document.createElement('button');
+  playBtn.id = 'hero-play-btn';
+  playBtn.innerHTML = `
+    <svg width="48" height="48" viewBox="0 0 64 64" fill="none">
+      <circle cx="32" cy="32" r="30" stroke="rgba(255,255,255,0.6)" stroke-width="2" fill="rgba(0,0,0,0.3)"/>
+      <polygon points="26,20 26,44 46,32" fill="rgba(255,255,255,0.85)"/>
+    </svg>
+    <span style="font-family:'Montserrat',sans-serif;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-top:8px;">Tap to Play</span>
+  `;
+  playBtn.style.cssText = `
+    position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+    z-index:3; background:none; border:none; cursor:pointer;
+    display:none; flex-direction:column; align-items:center; gap:4px;
+    opacity:0; transition:opacity 0.4s ease;
+  `;
+  video.parentElement.appendChild(playBtn);
+
+  function showPlayButton() {
+    playBtn.style.display = 'flex';
+    setTimeout(function () { playBtn.style.opacity = '1'; }, 50);
+  }
+
+  function hidePlayButton() {
+    playBtn.style.opacity = '0';
+    setTimeout(function () { playBtn.style.display = 'none'; }, 400);
+  }
+
+  playBtn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    video.muted = true;
+    video.play().then(function () {
+      isPlaying = true;
+      hidePlayButton();
+    }).catch(function () { });
+  });
+
   // Try immediately
   tryPlay();
 
-  // Also try on first user interaction (touch/scroll/click)
+  // Retry on video ready events
+  video.addEventListener('canplay', tryPlay);
+  video.addEventListener('loadedmetadata', tryPlay);
+  video.addEventListener('loadeddata', tryPlay);
+
+  // Retry on first user interaction
   function onFirstInteraction() {
     tryPlay();
-    document.removeEventListener('touchstart', onFirstInteraction);
-    document.removeEventListener('scroll', onFirstInteraction);
-    document.removeEventListener('click', onFirstInteraction);
+    if (isPlaying) {
+      document.removeEventListener('touchstart', onFirstInteraction);
+      document.removeEventListener('scroll', onFirstInteraction);
+      document.removeEventListener('click', onFirstInteraction);
+      document.removeEventListener('mousemove', onFirstInteraction);
+    }
   }
 
   document.addEventListener('touchstart', onFirstInteraction, { passive: true });
   document.addEventListener('scroll', onFirstInteraction, { passive: true });
   document.addEventListener('click', onFirstInteraction);
+  document.addEventListener('mousemove', onFirstInteraction, { passive: true });
 
-  // Also retry when video data is loaded
-  video.addEventListener('loadeddata', tryPlay);
+  // Also try when video becomes visible (IntersectionObserver)
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) tryPlay();
+      });
+    }, { threshold: 0.25 });
+    observer.observe(video);
+  }
+
+  // Final fallback: retry every 500ms for 5 seconds
+  let retryCount = 0;
+  const retryInterval = setInterval(function () {
+    if (isPlaying || retryCount >= 10) {
+      clearInterval(retryInterval);
+      return;
+    }
+    tryPlay();
+    retryCount++;
+  }, 500);
 })();
 
 /* ── MOBILE HAMBURGER ── */
@@ -353,3 +429,229 @@ if (form) {
 })();
 
 
+/* ── LIVE ANALOG CLOCK (Shop Timing Section) ── */
+(function () {
+  const clockSvg = document.getElementById('shop-analog-clock');
+  if (!clockSvg) return;
+
+  const hourHand = document.getElementById('clock-hour-hand');
+  const minuteHand = document.getElementById('clock-minute-hand');
+  const secondHand = document.getElementById('clock-second-hand');
+  const secondsArc = document.getElementById('clock-seconds-arc');
+  const minuteMarkersG = document.getElementById('clock-minute-markers');
+  const hourMarkersG = document.getElementById('clock-hour-markers');
+  const numbersG = document.getElementById('clock-numbers');
+  const statusEl = document.getElementById('shop-status');
+
+  const cx = 100, cy = 100, r = 88;
+
+  // Generate minute markers
+  for (let i = 0; i < 60; i++) {
+    if (i % 5 === 0) continue; // Skip hour positions
+    const angle = (i * 6) * Math.PI / 180;
+    const x1 = cx + (r - 2) * Math.sin(angle);
+    const y1 = cy - (r - 2) * Math.cos(angle);
+    const x2 = cx + (r - 6) * Math.sin(angle);
+    const y2 = cy - (r - 6) * Math.cos(angle);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    minuteMarkersG.appendChild(line);
+  }
+
+  // Generate hour markers
+  for (let i = 0; i < 12; i++) {
+    const angle = (i * 30) * Math.PI / 180;
+    const x1 = cx + (r - 1) * Math.sin(angle);
+    const y1 = cy - (r - 1) * Math.cos(angle);
+    const x2 = cx + (r - 10) * Math.sin(angle);
+    const y2 = cy - (r - 10) * Math.cos(angle);
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1);
+    line.setAttribute('y1', y1);
+    line.setAttribute('x2', x2);
+    line.setAttribute('y2', y2);
+    hourMarkersG.appendChild(line);
+  }
+
+  // Generate hour numbers
+  const nums = [12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  nums.forEach((num, i) => {
+    const angle = (i * 30) * Math.PI / 180;
+    const nx = cx + 70 * Math.sin(angle);
+    const ny = cy - 70 * Math.cos(angle);
+    const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+    text.setAttribute('x', nx);
+    text.setAttribute('y', ny);
+    text.textContent = num;
+    numbersG.appendChild(text);
+  });
+
+  // Seconds arc circumference
+  const arcCirc = 2 * Math.PI * 78; // ~490
+
+  function updateClock() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const ms = now.getMilliseconds();
+
+    // Smooth second angle
+    const secFrac = seconds + ms / 1000;
+    const secDeg = secFrac * 6;
+    const minDeg = (minutes + secFrac / 60) * 6;
+    const hrDeg = ((hours % 12) + minutes / 60 + seconds / 3600) * 30;
+
+    // Rotate hands
+    hourHand.setAttribute('transform', 'rotate(' + hrDeg + ' 100 100)');
+    minuteHand.setAttribute('transform', 'rotate(' + minDeg + ' 100 100)');
+    secondHand.setAttribute('transform', 'rotate(' + secDeg + ' 100 100)');
+
+    // Seconds arc sweep
+    const arcProgress = secFrac / 60;
+    const dashOffset = arcCirc * (1 - arcProgress);
+    secondsArc.setAttribute('stroke-dashoffset', dashOffset);
+
+    // Update open/closed status (10:00 AM to 11:00 PM)
+    if (statusEl) {
+      const isOpen = hours >= 10 && hours < 23;
+      const statusText = statusEl.querySelector('.status-text');
+      if (isOpen) {
+        statusEl.classList.remove('closed');
+        if (statusText) statusText.textContent = "We're Open Now";
+      } else {
+        statusEl.classList.add('closed');
+        if (statusText) statusText.textContent = "Currently Closed";
+      }
+    }
+
+    requestAnimationFrame(updateClock);
+  }
+
+  updateClock();
+})();
+
+/* ── TESTIMONIALS SLIDER ── */
+(function () {
+  const slider = document.getElementById('testimonials-slider');
+  const prevBtn = document.getElementById('testimonial-prev');
+  const nextBtn = document.getElementById('testimonial-next');
+  const dotsContainer = document.getElementById('testimonial-dots');
+
+  if (!slider || !prevBtn || !nextBtn || !dotsContainer) return;
+
+  const cards = slider.querySelectorAll('.testimonial-card');
+  if (!cards.length) return;
+
+  let currentIndex = 0;
+  let autoSlideTimer = null;
+
+  // Generate dots
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'testimonial-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots = dotsContainer.querySelectorAll('.testimonial-dot');
+
+  function goTo(index, direction) {
+    if (index === currentIndex) return;
+
+    const prevCard = cards[currentIndex];
+    const nextCard = cards[index];
+
+    // Determine slide direction
+    const goingForward = direction === 'next' || (direction === undefined && index > currentIndex);
+
+    // Exit current card
+    prevCard.classList.remove('active');
+    prevCard.classList.add('exit-left');
+    prevCard.style.transform = goingForward ? 'translateX(-60px)' : 'translateX(60px)';
+
+    // Prepare next card entry
+    nextCard.style.transform = goingForward ? 'translateX(60px)' : 'translateX(-60px)';
+    nextCard.style.opacity = '0';
+
+    // Trigger reflow
+    void nextCard.offsetWidth;
+
+    // Animate in
+    nextCard.classList.add('active');
+    nextCard.classList.remove('exit-left');
+    nextCard.style.transform = '';
+    nextCard.style.opacity = '';
+
+    // Clean up previous card after transition
+    setTimeout(() => {
+      prevCard.classList.remove('exit-left');
+      prevCard.style.transform = '';
+    }, 500);
+
+    // Update dots
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+
+    currentIndex = index;
+  }
+
+  function next() {
+    const nextIndex = (currentIndex + 1) % cards.length;
+    goTo(nextIndex, 'next');
+  }
+
+  function prev() {
+    const prevIndex = (currentIndex - 1 + cards.length) % cards.length;
+    goTo(prevIndex, 'prev');
+  }
+
+  nextBtn.addEventListener('click', () => {
+    next();
+    resetAutoSlide();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    prev();
+    resetAutoSlide();
+  });
+
+  // Auto-slide every 5 seconds
+  function startAutoSlide() {
+    autoSlideTimer = setInterval(next, 5000);
+  }
+
+  function resetAutoSlide() {
+    clearInterval(autoSlideTimer);
+    startAutoSlide();
+  }
+
+  startAutoSlide();
+
+  // Pause auto-slide on hover
+  slider.addEventListener('mouseenter', () => clearInterval(autoSlideTimer));
+  slider.addEventListener('mouseleave', startAutoSlide);
+
+  // Touch swipe support
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    clearInterval(autoSlideTimer);
+  }, { passive: true });
+
+  slider.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
+    }
+    startAutoSlide();
+  }, { passive: true });
+})();

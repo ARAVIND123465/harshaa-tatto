@@ -2272,3 +2272,447 @@ footer img {
     transform: translate(-50%, 0);
   }
 }
+
+/* ============================================================
+   SHOP TIMING SECTION
+   ============================================================ */
+.shop-timing-section {
+  padding: 100px 60px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-timing-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-timing-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+/* Timing Block (Opening / Closing) */
+.shop-timing-block {
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.timing-icon-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.timing-label-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+.timing-value {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0;
+}
+
+.timing-big {
+  font-family: 'Bebas Neue', 'Cinzel Decorative', serif;
+  font-size: clamp(64px, 8vw, 110px);
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.timing-colon {
+  font-family: 'Bebas Neue', 'Cinzel Decorative', serif;
+  font-size: clamp(54px, 7vw, 90px);
+  color: var(--gold);
+  line-height: 1;
+  margin: 0 2px;
+  animation: colonBlink 1.5s ease-in-out infinite;
+}
+
+@keyframes colonBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.timing-ampm {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 400;
+  color: var(--text-dim);
+  margin-left: 8px;
+  letter-spacing: 1px;
+  align-self: flex-end;
+  margin-bottom: 12px;
+}
+
+/* Analog Clock */
+.shop-clock-container {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shop-clock-outer-ring {
+  width: clamp(180px, 20vw, 240px);
+  height: clamp(180px, 20vw, 240px);
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+  padding: 8px;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,0.06),
+    0 0 0 6px rgba(255,255,255,0.03),
+    0 20px 60px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+  position: relative;
+}
+
+.shop-clock-outer-ring::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.08);
+  pointer-events: none;
+}
+
+.shop-clock-outer-ring::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+
+.shop-clock-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #1a1a1a;
+}
+
+.shop-clock-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Open/Closed Status */
+.shop-status-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+  padding: 12px 30px;
+  border: 1px solid var(--border);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background: var(--bg2);
+  transition: all 0.3s ease;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #2ecc71;
+  box-shadow: 0 0 8px rgba(46,204,113,0.5);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.shop-status-indicator.closed .status-dot {
+  background: #e74c3c;
+  box-shadow: 0 0 8px rgba(231,76,60,0.5);
+}
+
+@keyframes statusPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.3); opacity: 0.7; }
+}
+
+.status-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--text-mid);
+}
+
+/* ── SHOP TIMING RESPONSIVE ── */
+@media (max-width: 900px) {
+  .shop-timing-section {
+    padding: 70px 24px;
+  }
+
+  .shop-timing-row {
+    gap: 40px;
+  }
+
+  .shop-clock-outer-ring {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-timing-section {
+    padding: 60px 16px;
+  }
+
+  .shop-timing-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .shop-clock-container {
+    order: -1;
+  }
+
+  .shop-clock-outer-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .timing-big {
+    font-size: 60px;
+  }
+
+  .timing-colon {
+    font-size: 50px;
+  }
+}
+
+/* ============================================================
+   CLIENT TESTIMONIALS SECTION
+   ============================================================ */
+.testimonials-section {
+  padding: 100px 60px;
+  background: linear-gradient(180deg, #0a0a0a 0%, #151515 50%, #0a0a0a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(171,130,53,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 50%, rgba(171,130,53,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.testimonials-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials-heading {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: clamp(26px, 4vw, 42px);
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  letter-spacing: 1px;
+  margin-bottom: 50px;
+  font-style: italic;
+}
+
+/* Slider Wrapper */
+.testimonials-slider-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Slider Track */
+.testimonials-slider {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  overflow: hidden;
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 50px 60px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.testimonial-card.exit-left {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+.testimonial-name {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.testimonial-stars {
+  color: #f5c518;
+  font-size: 16px;
+  letter-spacing: 4px;
+  margin-bottom: 22px;
+}
+
+.testimonial-text {
+  font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.7);
+  font-style: italic;
+  max-width: 650px;
+}
+
+/* Navigation Arrows */
+.testimonial-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.03);
+  color: rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.testimonial-arrow:hover {
+  border-color: rgba(171,130,53,0.5);
+  color: #c9a84c;
+  background: rgba(171,130,53,0.08);
+  transform: scale(1.08);
+}
+
+/* Dots */
+.testimonial-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.testimonial-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.testimonial-dot.active {
+  background: #ffffff;
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.testimonial-dot:hover {
+  background: rgba(255,255,255,0.4);
+}
+
+/* ── TESTIMONIALS RESPONSIVE ── */
+@media (max-width: 768px) {
+  .testimonials-section {
+    padding: 70px 20px;
+  }
+
+  .testimonial-card {
+    padding: 35px 25px;
+  }
+
+  .testimonial-text {
+    font-size: 14px;
+  }
+
+  .testimonial-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .testimonial-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .testimonials-slider-wrapper {
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonials-section {
+    padding: 50px 12px;
+  }
+
+  .testimonial-card {
+    padding: 28px 18px;
+  }
+
+  .testimonial-name {
+    font-size: 15px;
+  }
+
+  .testimonial-text {
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .testimonial-arrow {
+    width: 32px;
+    height: 32px;
+  }
+}

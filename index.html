@@ -49,7 +49,7 @@
   <section class="hero">
     <video id="hero-video" autoplay loop muted playsinline webkit-playsinline preload="auto" disablepictureinpicture
       poster="images/chhhhh.JPG"
-      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.75; pointer-events: none;">
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0.75;">
       <source src="images/video.mp4" type="video/mp4">
     </video>
     <div class="hero-bg" style="z-index: 1;"></div>
@@ -243,52 +243,22 @@
       <!-- Piercing Artworks -->
       <div class="gallery-item piercing">
         <div class="gallery-img">
-          <img src="images/piercing_ear.png" alt="Curated Ear Piercing">
+          <img src="images/piercing_ear_moon.jpg" alt="Ear Piercing - Moon Stud">
         </div>
       </div>
       <div class="gallery-item piercing">
         <div class="gallery-img">
-          <img src="images/piercing_nose.png" alt="Nose and Septum Piercing">
+          <img src="images/piercing_ear_crescent.jpg" alt="Ear Piercing - Crescent Design">
         </div>
       </div>
       <div class="gallery-item piercing">
         <div class="gallery-img">
-          <img src="images/piercing_helix.png" alt="Helix and Lobe Piercing">
+          <img src="images/piercing_navel_real.jpg" alt="Navel Piercing">
         </div>
       </div>
       <div class="gallery-item piercing">
         <div class="gallery-img">
-          <img src="images/piercing_eyebrow.png" alt="Eyebrow Piercing">
-        </div>
-      </div>
-      <div class="gallery-item piercing">
-        <div class="gallery-img">
-          <img src="images/piercing_lip.png" alt="Lip Piercing">
-        </div>
-      </div>
-      <div class="gallery-item piercing">
-        <div class="gallery-img">
-          <img src="images/piercing_navel.png" alt="Navel Piercing">
-        </div>
-      </div>
-      <div class="gallery-item piercing">
-        <div class="gallery-img">
-          <img src="images/piercing_industrial.png" alt="Industrial Piercing">
-        </div>
-      </div>
-      <div class="gallery-item piercing">
-        <div class="gallery-img">
-          <img src="images/piercing_daith.png" alt="Daith Piercing">
-        </div>
-      </div>
-      <div class="gallery-item piercing">
-        <div class="gallery-img">
-          <img src="images/piercing_nostril.png" alt="Nostril Stud Piercing">
-        </div>
-      </div>
-      <div class="gallery-item piercing">
-        <div class="gallery-img">
-          <img src="images/piercing_conch.png" alt="Conch Ear Piercing">
+          <img src="images/piercing_nose_real.jpg" alt="Nose Piercing - Flower Stud">
         </div>
       </div>
     </div>
@@ -385,6 +355,115 @@
         <div class="service-name">Tattoo Academy</div>
         <p class="service-desc">Pursue the art of tattooing. Professional training courses for beginners and advanced
           artists taught by senior mentors.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP TIMING -->
+  <section class="shop-timing-section" id="shop-timing">
+    <div class="shop-timing-inner reveal">
+      <div class="section-label" style="justify-content:center;">Shop Timing</div>
+      <h2 class="section-title"
+        style="text-align:center; font-size:clamp(32px,5vw,56px); font-family:'Bebas Neue','Cinzel Decorative',serif; letter-spacing:4px; margin-bottom:60px;">
+        SHOP TIMING</h2>
+
+      <div class="shop-timing-row">
+        <!-- Opening Time -->
+        <div class="shop-timing-block">
+          <div class="timing-icon-label">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="timing-label-text">Opening Time</span>
+          </div>
+          <div class="timing-value">
+            <span class="timing-big">10</span>
+            <span class="timing-colon">:</span>
+            <span class="timing-big">00</span>
+            <span class="timing-ampm">am</span>
+          </div>
+        </div>
+
+        <!-- Live Analog Clock -->
+        <div class="shop-clock-container">
+          <div class="shop-clock-outer-ring">
+            <div class="shop-clock-inner">
+              <svg id="shop-analog-clock" viewBox="0 0 200 200" class="shop-clock-svg">
+                <!-- Clock face background -->
+                <circle cx="100" cy="100" r="96" fill="#1a1a1a" />
+
+                <!-- Outer decorative ring -->
+                <circle cx="100" cy="100" r="94" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+
+                <!-- Minute markers -->
+                <g id="clock-minute-markers" stroke="rgba(255,255,255,0.25)" stroke-width="1">
+                </g>
+
+                <!-- Hour markers -->
+                <g id="clock-hour-markers" stroke="rgba(255,255,255,0.7)" stroke-width="2">
+                </g>
+
+                <!-- Hour numbers -->
+                <g id="clock-numbers" fill="rgba(255,255,255,0.5)" font-family="'Montserrat',sans-serif" font-size="11"
+                  text-anchor="middle" dominant-baseline="central">
+                </g>
+
+                <!-- Inner circle accent -->
+                <circle cx="100" cy="100" r="6" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5" />
+
+                <!-- Sweeping seconds track -->
+                <circle cx="100" cy="100" r="78" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="16" />
+
+                <!-- Seconds arc (animated) -->
+                <circle id="clock-seconds-arc" cx="100" cy="100" r="78" fill="none" stroke="rgba(255,255,255,0.12)"
+                  stroke-width="16" stroke-dasharray="490" stroke-dashoffset="490" stroke-linecap="butt"
+                  transform="rotate(-90 100 100)" />
+
+                <!-- Hour hand -->
+                <line id="clock-hour-hand" x1="100" y1="100" x2="100" y2="50" stroke="#ffffff" stroke-width="3.5"
+                  stroke-linecap="round" />
+
+                <!-- Minute hand -->
+                <line id="clock-minute-hand" x1="100" y1="100" x2="100" y2="34" stroke="#ffffff" stroke-width="2"
+                  stroke-linecap="round" />
+
+                <!-- Second hand -->
+                <line id="clock-second-hand" x1="100" y1="115" x2="100" y2="30" stroke="#e74c3c" stroke-width="1"
+                  stroke-linecap="round" />
+
+                <!-- Center dot -->
+                <circle cx="100" cy="100" r="4" fill="#e74c3c" />
+                <circle cx="100" cy="100" r="2" fill="#ffffff" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Closing Time -->
+        <div class="shop-timing-block">
+          <div class="timing-icon-label">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span class="timing-label-text">Closing Time</span>
+          </div>
+          <div class="timing-value">
+            <span class="timing-big">11</span>
+            <span class="timing-colon">:</span>
+            <span class="timing-big">00</span>
+            <span class="timing-ampm">pm</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Open/Closed Status Indicator -->
+      <div class="shop-status-indicator" id="shop-status">
+        <span class="status-dot"></span>
+        <span class="status-text">We're Open Now</span>
       </div>
     </div>
   </section>
@@ -547,6 +626,92 @@
           <p class="form-note">We will call you within 24 hours to confirm your booking.</p>
         </div>
       </form>
+    </div>
+  </section>
+
+  <!-- CLIENT TESTIMONIALS -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-inner reveal">
+      <div class="section-label" style="justify-content:center; color:rgba(255,255,255,0.5);">Testimonials</div>
+      <h2 class="testimonials-heading">What Our Client Says</h2>
+
+      <div class="testimonials-slider-wrapper">
+        <!-- Left Arrow -->
+        <button class="testimonial-arrow testimonial-arrow-left" id="testimonial-prev" aria-label="Previous testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+
+        <!-- Slider Track -->
+        <div class="testimonials-slider" id="testimonials-slider">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card active">
+            <div class="testimonial-name">Priya Sharma</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">Absolutely amazing experience at Harsha Tattoo Studio! Akash is incredibly talented and patient. He took my rough idea and turned it into a masterpiece. The studio is clean, professional, and the atmosphere is very welcoming. My sleeve tattoo turned out beyond my expectations. Highly recommend to anyone in Coimbatore!</p>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Vikram Raj</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">Got my first tattoo here and couldn't be happier with the result. The team made me feel comfortable throughout the entire process. Akash explained every step, from design consultation to aftercare. The fine-line work is absolutely stunning — clean, precise, and exactly what I wanted. Will definitely be coming back!</p>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Deepika M.</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">I traveled from Bangalore specifically for Harsha Tattoo Studio after seeing their work on Instagram. The portrait realism is on another level! Akash captured every detail perfectly. The hygiene standards are top-notch — everything is sterilized and they use single-use needles. Worth every kilometer of the drive!</p>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Rahul Krishnan</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">Best tattoo studio in Coimbatore, hands down. I got a geometric mandala on my forearm and the precision is incredible. The team is very professional and the studio environment is super clean and artistic. Akash really listens to what you want and delivers perfection every single time.</p>
+          </div>
+
+          <!-- Testimonial 5 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Anitha Sundaram</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">I was nervous about getting a cover-up tattoo, but Akash made the entire experience stress-free. He designed a beautiful floral piece that completely transformed my old tattoo. The color work is vibrant and the shading is so smooth. The aftercare guidance was also very detailed and helpful. Truly a skilled artist!</p>
+          </div>
+
+          <!-- Testimonial 6 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Karthik Rajan</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">Had an amazing experience getting my Japanese-style tattoo. The attention to detail is remarkable — every wave, every petal looks alive on my skin. The studio has a great vibe with music and comfortable seating. Pricing is fair for the quality of work. Already planning my next session here!</p>
+          </div>
+
+          <!-- Testimonial 7 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Meena Lakshmi</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">Got a delicate script tattoo on my wrist and it's absolutely perfect. The lettering is clean and elegant. Akash has a very steady hand and incredible artistic sense. The whole process from consultation to completion was smooth and professional. The studio truly lives up to its reputation!</p>
+          </div>
+
+          <!-- Testimonial 8 -->
+          <div class="testimonial-card">
+            <div class="testimonial-name">Arun Prakash</div>
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">Extremely satisfied with the work. The atmosphere was friendly and overall a very good experience. Akash is highly talented and takes joy in his work and it shows in the result. Would definitely recommend to anyone looking to get their tattoo. 100% sterile equipment and great aftercare support!</p>
+          </div>
+        </div>
+
+        <!-- Right Arrow -->
+        <button class="testimonial-arrow testimonial-arrow-right" id="testimonial-next" aria-label="Next testimonial">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Dots -->
+      <div class="testimonial-dots" id="testimonial-dots"></div>
     </div>
   </section>
 
