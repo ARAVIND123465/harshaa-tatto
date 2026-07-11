@@ -161,10 +161,42 @@ revealElements.forEach(el => revealObserver.observe(el));
 /* ── BOOKING FORM ── */
 const form = document.getElementById('bookingForm');
 const notif = document.getElementById('notif');
+const shopLocationSelect = document.getElementById('shopLocationSelect');
+const destinationCityMojo = document.getElementById('destinationCityMojo');
+const phoneInput = form ? form.querySelector('input[name="phone"]') : null;
+const phoneErrorMsg = document.getElementById('phoneErrorMsg');
+
+if (shopLocationSelect && destinationCityMojo) {
+  shopLocationSelect.addEventListener('change', () => {
+    destinationCityMojo.textContent = shopLocationSelect.value;
+  });
+}
+
+if (phoneInput && phoneErrorMsg) {
+  phoneInput.addEventListener('input', () => {
+    // Hide error when user types
+    phoneErrorMsg.style.display = 'none';
+  });
+}
 
 if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
+
+    // Validate phone number (should be numeric only, min 6 digits)
+    const phoneVal = phoneInput ? phoneInput.value.trim() : '';
+    const cleanPhoneVal = phoneVal.replace(/[\s\-+]/g, '');
+    const isNumeric = /^\d+$/.test(cleanPhoneVal);
+
+    if (!isNumeric || cleanPhoneVal.length < 6) {
+      if (phoneErrorMsg) {
+        phoneErrorMsg.style.display = 'block';
+        phoneInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+      return;
+    } else {
+      if (phoneErrorMsg) phoneErrorMsg.style.display = 'none';
+    }
 
     // Change button text while sending
     const submitBtn = form.querySelector('button[type="submit"]');
@@ -175,6 +207,10 @@ if (form) {
     try {
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
+      
+      // Combine country code and phone number
+      const fullPhone = `${data.countryCode || '+91'} ${data.phone}`;
+      data.phone = fullPhone;
 
       const response = await fetch('/api/book', {
         method: 'POST',
@@ -187,9 +223,16 @@ if (form) {
       }
 
       // Show notification on success
-      notif.classList.add('show');
-      setTimeout(() => notif.classList.remove('show'), 4000);
+      if (notif) {
+        notif.classList.add('show');
+        setTimeout(() => notif.classList.remove('show'), 4000);
+      }
       form.reset();
+      
+      // Reset destination note to Coimbatore (default)
+      if (destinationCityMojo) {
+        destinationCityMojo.textContent = 'Coimbatore';
+      }
     } catch (err) {
       console.error('Error submitting form:', err);
       alert('Failed to send booking request. Please try again later.');

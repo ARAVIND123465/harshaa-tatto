@@ -30,30 +30,38 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-app.post('/api/book', async (req, res) => {
-  const { name, email, phone, date, time, style, placement, idea } = req.body;
 
-  if (!name || !phone || !email || !date) {
-    return res.status(400).json({ error: 'Name, email, phone, and date are required.' });
+app.post('/api/book', async (req, res) => {
+  const { name, email, phone, date, time, style, placement, idea, dob, location, bookingDate, tattooType, message } = req.body;
+
+  const finalPhone = phone;
+  const finalDate = bookingDate || date;
+  const finalStyle = tattooType || style || 'Not specified';
+  const finalMessage = message || idea || 'None provided';
+  const finalLocation = location || 'Coimbatore';
+  const finalDob = dob || 'Not specified';
+
+  if (!name || !finalPhone || !email || !finalDate) {
+    return res.status(400).json({ error: 'Name, email, phone, and booking date are required.' });
   }
 
   const mailOptions = {
     from: `"Harsha Tattoo Studio" <${emailUser}>`,
     to: emailReceiver,
-    subject: `New Booking Request from ${name}`,
+    subject: `New Booking Request from ${name} (${finalLocation})`,
     text: `
 You have a new booking request!
 
 Name: ${name}
 Email: ${email}
-Phone: ${phone}
-Preferred Date: ${date}
-Preferred Time: ${time || 'Not specified'}
-Tattoo Style: ${style || 'Not specified'}
-Placement: ${placement || 'Not specified'}
+Phone: ${finalPhone}
+Shop Location: ${finalLocation}
+Date of Birth: ${finalDob}
+Appointment Date: ${finalDate}
+Preferred Tattoo Type: ${finalStyle}
 
-Idea Description:
-${idea || 'None provided'}
+Message / Idea Description:
+${finalMessage}
     `,
   };
 
@@ -65,14 +73,13 @@ ${idea || 'None provided'}
 
 Thank you for reaching out to Harsha Tattoo Studio!
 
-We have received your booking request for ${date}. Our team will review your details and call you at ${phone} within 24 hours to confirm your appointment and discuss your tattoo idea.
+We have received your booking request for ${finalDate} at our ${finalLocation} location. Our team will review your details and call you at ${finalPhone} within 24 hours to confirm your appointment.
 
 Here is a summary of your request:
-- Date: ${date}
-- Time: ${time || 'Not specified'}
-- Style: ${style || 'Not specified'}
-- Placement: ${placement || 'Not specified'}
-- Idea: ${idea || 'None provided'}
+- Date: ${finalDate}
+- Location: ${finalLocation}
+- Tattoo Style: ${finalStyle}
+- Message: ${finalMessage}
 
 We look forward to creating your next masterpiece!
 

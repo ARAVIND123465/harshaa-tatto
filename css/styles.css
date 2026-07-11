@@ -2716,3 +2716,287 @@ footer img {
     height: 32px;
   }
 }
+
+/* ── REDESIGNED MOJO BOOKING FORM STYLES ── */
+.booking-form-mojo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 24px;
+  background: var(--bg2);
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.form-group-mojo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group-mojo.full {
+  grid-column: 1 / -1;
+}
+
+.form-label-mojo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-mid);
+  margin-bottom: 2px;
+  letter-spacing: 0.2px;
+}
+
+.form-label-mojo .asterisk {
+  color: #e53e3e;
+  margin-right: 3px;
+  font-weight: bold;
+}
+
+.form-input-underlined {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(171, 130, 53, 0.2);
+  color: var(--text);
+  padding: 8px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-bottom-color var(--transition);
+  border-radius: 0;
+  width: 100%;
+}
+
+.form-input-underlined:focus {
+  border-bottom-color: var(--gold);
+}
+
+.mobile-row-mojo {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.country-select-wrapper {
+  position: relative;
+  width: 110px;
+  flex-shrink: 0;
+}
+
+.country-select-mojo {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid rgba(171, 130, 53, 0.2);
+  color: var(--text-mid);
+  padding: 6px 20px 6px 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  outline: none;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.country-select-wrapper .dropdown-chevron-icon {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.mobile-input-mojo {
+  flex-grow: 1;
+}
+
+.form-error-msg {
+  color: #e53e3e;
+  font-size: 11px;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 4px;
+  display: none; /* controlled by JS */
+}
+
+.location-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.location-select-mojo {
+  width: 100%;
+  background: var(--bg);
+  border: 1.5px solid rgba(171, 130, 53, 0.2);
+  color: var(--text);
+  padding: 8px 36px 8px 12px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  outline: none;
+  border-radius: 6px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  transition: border-color var(--transition);
+  cursor: pointer;
+}
+
+.location-select-mojo:focus {
+  border-color: var(--gold);
+}
+
+.location-target-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.date-input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.date-input-wrapper input[type="date"] {
+  padding-right: 28px;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+
+/* Hide default calendar picker icon if possible, but keep it interactive */
+.date-input-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 2px;
+  bottom: 8px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+
+.type-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.form-select-underlined {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(171, 130, 53, 0.2);
+  color: var(--text);
+  padding: 8px 24px 8px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  outline: none;
+  border-radius: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  transition: border-bottom-color var(--transition);
+  cursor: pointer;
+}
+
+.form-select-underlined:focus {
+  border-bottom-color: var(--gold);
+}
+
+.dropdown-chevron-icon-underlined {
+  position: absolute;
+  right: 2px;
+  bottom: 10px;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.form-textarea-underlined {
+  background: transparent;
+  border: none;
+  border-bottom: 1.5px solid rgba(171, 130, 53, 0.2);
+  color: var(--text);
+  padding: 8px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  outline: none;
+  transition: border-bottom-color var(--transition);
+  border-radius: 0;
+  width: 100%;
+  resize: vertical;
+  min-height: 70px;
+}
+
+.form-textarea-underlined:focus {
+  border-bottom-color: var(--gold);
+}
+
+.form-info-destination-mojo {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  gap: 4px;
+}
+
+.city-bold-mojo {
+  font-weight: 700;
+  color: var(--text);
+}
+
+.form-submit-mojo {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.submit-btn-mojo {
+  width: 100%;
+  background: #111111;
+  color: #ffffff;
+  border: none;
+  padding: 15px 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background var(--transition), opacity var(--transition);
+}
+
+.submit-btn-mojo:hover {
+  background: #000000;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .booking-form-mojo {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 24px 18px;
+  }
+}
+

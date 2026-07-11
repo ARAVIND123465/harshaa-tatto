@@ -180,61 +180,61 @@
       <button class="gallery-filter-btn active" data-filter="all">All Art</button>
       <button class="gallery-filter-btn" data-filter="tattoo">Tattoos</button>
       <button class="gallery-filter-btn" data-filter="piercing">Piercings</button>
-      <button class="gallery-filter-btn" data-filter="tattoo">Portrait</button>
-      <button class="gallery-filter-btn" data-filter="tattoo">Realism</button>
-      <button class="gallery-filter-btn" data-filter="tattoo">Sleeve</button>
-      <button class="gallery-filter-btn" data-filter="tattoo">Geometric</button>
-      <button class="gallery-filter-btn" data-filter="tattoo">Minimalist</button>
+      <button class="gallery-filter-btn" data-filter="portrait">Portrait</button>
+      <button class="gallery-filter-btn" data-filter="realism">Realism</button>
+      <button class="gallery-filter-btn" data-filter="sleeve">Sleeve</button>
+      <button class="gallery-filter-btn" data-filter="geometric">Geometric</button>
+      <button class="gallery-filter-btn" data-filter="minimalist">Minimalist</button>
     </div>
 
     <div class="gallery-grid">
       <!-- Tattoo Artworks -->
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo minimalist">
         <div class="gallery-img">
           <img src="images/chhhhh.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo sleeve">
         <div class="gallery-img">
           <img src="images/cdddd.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo portrait">
         <div class="gallery-img">
           <img src="images/cffffff.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo portrait">
         <div class="gallery-img">
           <img src="images/cgggggg.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo realism">
         <div class="gallery-img">
           <img src="images/caaaa.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo realism">
         <div class="gallery-img">
           <img src="images/eeeeee.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo geometric">
         <div class="gallery-img">
           <img src="images/qqqq.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo minimalist">
         <div class="gallery-img">
           <img src="images/rrrrrrr.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo sleeve">
         <div class="gallery-img">
           <img src="images/ttttt.JPG" alt="Tattoo artwork">
         </div>
       </div>
-      <div class="gallery-item tattoo">
+      <div class="gallery-item tattoo geometric">
         <div class="gallery-img">
           <img src="images/yyyyyyy.JPG" alt="Tattoo artwork">
         </div>
@@ -345,17 +345,7 @@
         <p class="service-desc">Professional sterile body piercings by experienced masters. Single-use needles, strict
           hygiene, and premium titanium or gold jewelry.</p>
       </div>
-      <div class="service-card">
-        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-          stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 22 7 12 12 2 7" />
-          <path d="M2 17l10 5 10-5" />
-          <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
-        </svg>
-        <div class="service-name">Tattoo Academy</div>
-        <p class="service-desc">Pursue the art of tattooing. Professional training courses for beginners and advanced
-          artists taught by senior mentors.</p>
-      </div>
+
     </div>
   </section>
 
@@ -568,62 +558,88 @@
         <h2 class="section-title">Reserve Your Appointment</h2>
         <p>Fill in the form below and we'll confirm your slot within 24 hours.</p>
       </div>
-      <form class="booking-form reveal" id="bookingForm">
-        <div class="form-group">
-          <label class="form-label">Full Name</label>
-          <input type="text" class="form-input" name="name" placeholder="Your name" required>
+      <form class="booking-form-mojo reveal" id="bookingForm">
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Name</label>
+          <input type="text" class="form-input-underlined" name="name" required>
         </div>
-        <div class="form-group">
-          <label class="form-label">Email Address</label>
-          <input type="email" class="form-input" name="email" placeholder="Your email" required>
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Email</label>
+          <input type="email" class="form-input-underlined" name="email" required>
         </div>
-        <div class="form-group">
-          <label class="form-label">Phone Number</label>
-          <input type="tel" class="form-input" name="phone" placeholder="+91 XXXXX XXXXX" required>
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Mobile</label>
+          <div class="mobile-row-mojo">
+            <div class="country-select-wrapper">
+              <select class="country-select-mojo" name="countryCode">
+                <option value="+91">India (+91)</option>
+              </select>
+              <span class="dropdown-chevron-icon">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </span>
+            </div>
+            <input type="tel" class="form-input-underlined mobile-input-mojo" name="phone" placeholder="Enter number" required>
+          </div>
+          <div class="form-error-msg" id="phoneErrorMsg">Enter a number.</div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Preferred Date</label>
-          <input type="date" class="form-input" name="date" required>
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Shop Location</label>
+          <div class="location-select-wrapper">
+            <select class="location-select-mojo" name="location" id="shopLocationSelect" required>
+              <option value="Coimbatore">Coimbatore (Selvapuram)</option>
+            </select>
+            <span class="location-target-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="22" y1="12" x2="18" y2="12"></line><line x1="6" y1="12" x2="2" y2="12"></line><line x1="12" y1="6" x2="12" y2="2"></line><line x1="12" y1="22" x2="12" y2="18"></line></svg>
+            </span>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Preferred Time</label>
-          <select class="form-select" name="time">
-            <option value="">Select Time Slot</option>
-            <option>10:00 AM – 12:00 PM</option>
-            <option>12:00 PM – 2:00 PM</option>
-            <option>2:00 PM – 4:00 PM</option>
-            <option>4:00 PM – 6:00 PM</option>
-            <option>6:00 PM – 8:00 PM</option>
-            <option>8:00 PM – 10:00 PM</option>
-            <option>10:00 PM – 11:00 PM</option>
-          </select>
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Date of Birth</label>
+          <div class="date-input-wrapper">
+            <input type="date" class="form-input-underlined" name="dob" required>
+            <span class="calendar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </span>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Tattoo Style</label>
-          <select class="form-select" name="style">
-            <option value="">Select Style</option>
-            <option>Custom Design</option>
-            <option>Blackwork & Geometric</option>
-            <option>Fine Line & Minimalist</option>
-            <option>Color Realism</option>
-            <option>Cover Up & Rework</option>
-            <option>Lettering & Script</option>
-            <option>Japanese / Irezumi</option>
-            <option>Traditional / Neo Traditional</option>
-          </select>
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Appointment Booking</label>
+          <div class="date-input-wrapper">
+            <input type="date" class="form-input-underlined" name="bookingDate" required>
+            <span class="calendar-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            </span>
+          </div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Placement on Body</label>
-          <input type="text" class="form-input" name="placement" placeholder="e.g. Left forearm, back, chest...">
+        <div class="form-group-mojo">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Preferred Tattoo Type</label>
+          <div class="type-select-wrapper">
+            <select class="form-select-underlined" name="tattooType" required>
+              <option value="" disabled selected hidden>Select tattoo type</option>
+              <option value="Custom Design">Custom Design</option>
+              <option value="Blackwork & Geometric">Blackwork & Geometric</option>
+              <option value="Fine Line & Minimalist">Fine Line & Minimalist</option>
+              <option value="Color Realism">Color Realism</option>
+              <option value="Lettering & Script">Lettering & Script</option>
+              <option value="Body Piercing">Body Piercing</option>
+            </select>
+            <span class="dropdown-chevron-icon-underlined">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </span>
+          </div>
         </div>
-        <div class="form-group full">
-          <label class="form-label">Describe Your Idea</label>
-          <textarea class="form-textarea" name="idea"
-            placeholder="Tell us about the tattoo you have in mind — concept, references, size, any specific details..."></textarea>
+        <div class="form-group-mojo full">
+          <label class="form-label-mojo"><span class="asterisk">*</span> Message</label>
+          <textarea class="form-textarea-underlined" name="message" required></textarea>
         </div>
-        <div class="form-submit">
-          <button type="submit">Confirm Appointment</button>
-          <p class="form-note">We will call you within 24 hours to confirm your booking.</p>
+        
+        <div class="form-info-destination-mojo">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#718096" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 4px;"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+          This details will go to <span id="destinationCityMojo" class="city-bold-mojo">Coimbatore</span>
+        </div>
+
+        <div class="form-submit-mojo">
+          <button type="submit" class="submit-btn-mojo">Send Message</button>
         </div>
       </form>
     </div>
